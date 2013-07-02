@@ -1,9 +1,26 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)
+#  password_digest :string(255)
+#  session_token   :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   attr_accessible :password, :email
 
   validates :email, :presence => true,
   									:uniqueness => true,
   									:email => true
+
+  has_many :bills
+
+  has_many :billings, :foreign_key => :participant_id
+  has_many :bill_responsibilities, :through => :billings, :source => :participant
 
   has_many :connections, :foreign_key => :creator_id
   has_many :connected_users, :through => :connections, :source => :receiver

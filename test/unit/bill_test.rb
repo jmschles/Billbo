@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: connections
+# Table name: bills
 #
 #  id          :integer          not null, primary key
-#  creator_id  :integer
-#  receiver_id :integer
+#  user_id     :integer
+#  description :string(255)
+#  amount      :decimal(, )
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 require 'test_helper'
 
-class ConnectionTest < ActiveSupport::TestCase
+class BillTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

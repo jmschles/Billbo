@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702023122) do
+ActiveRecord::Schema.define(:version => 20130702051746) do
+
+  create_table "billings", :force => true do |t|
+    t.integer  "bill_id"
+    t.integer  "participant_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "bills", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.decimal  "amount"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "connections", :force => true do |t|
     t.integer  "creator_id"
