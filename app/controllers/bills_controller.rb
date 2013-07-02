@@ -3,7 +3,7 @@ class BillsController < ApplicationController
 	respond_to :json
 
 	def create
-		@bill = Bill.new(params[:bill])
+		@bill = current_user.bills.build(params[:bill]);
 		@bill.save!
 
 		render :json => @bill

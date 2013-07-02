@@ -1,14 +1,15 @@
 Billbo.Routers.Bills = Backbone.Router.extend({
 
 	routes: {
-		"": "index"
+		"": "index",
+		"bills/new": "new"
 	},
 
 	initialize: function (options) {
 		this.$rootEl = options.$rootEl;
 	},
 
-	index: function() {
+	index: function () {
 		var that = this;
 
 		Billbo.billsColl = new Billbo.Collections.Bills();
@@ -22,6 +23,20 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 				that.$rootEl.html(indexView.render().$el);
 			}
 		});
+	},
+
+	new: function () {
+		var that = this;
+
+		Billbo.billsColl = new Billbo.Collections.Bills();
+
+		var newBill = new Billbo.Models.Bill();
+		var formView = new Billbo.Views.BillForm({
+			model: newBill,
+			collection: Billbo.billsColl
+		});
+
+		that.$rootEl.html(formView.render().$el);
 	}
 
 });
