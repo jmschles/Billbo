@@ -11,7 +11,7 @@
 	<% bills.each(function(bill) { %>
 		<tr>	
 			<td><%= bill.escape('description') %></td>
-			<td><%= parseFloat(bill.escape('amount')).toFixed(2) %></td>
+			<td>$<%= parseFloat(bill.escape('amount')).toFixed(2) %></td>
 		</tr>
 	<% }); %>
 </table>

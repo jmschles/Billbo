@@ -4,5 +4,5 @@ class ConnectionsController < ApplicationController
 		@connection = current_user.connections.build(params[:receiver_id])
 		@connection.save!
 	end
-	
+
 end

@@ -6,7 +6,8 @@ window.Billbo = {
   initialize: function() {
     
   	new Billbo.Routers.Bills({
-  		"$rootEl": $("#content")
+  		"$rootEl": $("#content"),
+      "connections": $("#userdata")
   	});
   	Backbone.history.start();
   }

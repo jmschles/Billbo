@@ -18,4 +18,6 @@ class Bill < ActiveRecord::Base
   belongs_to :user
   has_many :billings
   has_many :participants, :through => :billings
+
+  accepts_nested_attributes_for :billings
 end

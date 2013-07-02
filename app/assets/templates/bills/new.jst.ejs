@@ -9,7 +9,20 @@
 	<label for="amount">Amount</label>
 	<input type="text" name="amount" id="amount">
 
-	<br />
+	<br /><br />
+
+	<label>Share bill with:</label><br />
+
+	<select name="billing[participant_id]">
+		<option></option>
+		<% _(connections).each(function(connectedUser) { %>
+			<option value="<%= connectedUser.id %>">
+				<%= connectedUser.email %>
+			</option>
+		<% }); %>
+	</select>
+
+	<br /><br />
 
 	<input type="submit" value="Create Bill!">
 
@@ -17,4 +30,5 @@
 
 </form>
 
+<br />
 <a href="#">Never mind!</a>

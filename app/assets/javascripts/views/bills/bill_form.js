@@ -6,9 +6,14 @@ Billbo.Views.BillForm = Backbone.View.extend({
   	'click input[type="submit"]': "submit"
   },
 
+  initialize: function (options) {
+    this.connections = options.connections;
+  },
+
   render: function () {
   	var renderedContent = this.template({
-  		bill: this.model
+  		bill: this.model,
+      connections: this.connections
   	});
 
   	this.$el.html(renderedContent);

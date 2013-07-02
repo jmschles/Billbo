@@ -7,6 +7,7 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
 	initialize: function (options) {
 		this.$rootEl = options.$rootEl;
+		this.connections = options.connections.html();
 	},
 
 	index: function () {
@@ -32,6 +33,7 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
 		var newBill = new Billbo.Models.Bill();
 		var formView = new Billbo.Views.BillForm({
+			connections: JSON.parse(this.connections),
 			model: newBill,
 			collection: Billbo.billsColl
 		});
