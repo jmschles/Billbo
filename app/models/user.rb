@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   									:uniqueness => true,
   									:email => true
 
+  has_many :connections, :foreign_key => :creator_id
+  has_many :connected_users, :through => :connections, :source => :receiver
+
   def password=(password)
   	self.password_digest = BCrypt::Password.create(password)
   end
