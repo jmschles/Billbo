@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+table {
+	width: 400px;
+	font-family: garamond;
+}
+
+table th {
+	text-align: left;
+	font-style: bold;
+}
+
+table th,td {
+	padding: 3px 20px;
+	border: 1px solid #CCC;
+	margin: 0px;
+}
+
+table tr:hover {
+	background-color: #DDD;
+}

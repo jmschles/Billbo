@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :bills
 
   has_many :billings, :foreign_key => :participant_id
-  has_many :bill_responsibilities, :through => :billings, :source => :participant
+  has_many :bill_responsibilities, :through => :billings, :source => :bill
 
   has_many :connections, :foreign_key => :creator_id
   has_many :connected_users, :through => :connections, :source => :receiver
