@@ -4,33 +4,35 @@ window.Billbo = {
   Views: {},
   Routers: {},
 
-  initialize: function($connections, connections) {
+  initialize: function() {
     
-  	this.installConnectionsBar($connections, connections);
+  	// this.installConnectionsBar($connections, connections);
 
     new Billbo.Routers.Bills({
   		"$rootEl": $("#content"),
-      "connections": connections
+      "$connectionsEl": $("#connections")
+      // "connections": connections
   	});
 
   	Backbone.history.start();
   },
 
-  installConnectionsBar: function($connections, connections) {
-    var that = this;
+  // installConnectionsBar: function($connections, connections) {
+  //   var that = this;
 
-    var connectionsView = new Billbo.Views.ConnectionsIndex({
-      collection: connections
-    });
+  //   var connectionsView = new Billbo.Views.ConnectionsIndex({
+  //     collection: connections
+  //   });
 
-    $connections.html(connectionsView.render().$el);
-  }
+  //   $connections.html(connectionsView.render().$el);
+  // }
 };
 
 $(document).ready(function(){
-  var $connections = $("#connections");
-  console.log($("#userdata"));
-  var connections = JSON.parse($("#userdata").html());
-  
-  Billbo.initialize($connections, connections);
+  // var $connections = $("#connections");
+
+  // var connections = JSON.parse($("#userdata").html());
+  // old params for below: $connections, connections
+
+  Billbo.initialize();
 });

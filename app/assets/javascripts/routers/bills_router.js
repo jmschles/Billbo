@@ -7,13 +7,14 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
 	initialize: function (options) {
 		this.$rootEl = options.$rootEl;
-		this.connections = options.connections;
+		this.$connectionsEl = options.$connectionsEl;
 	},
 
 	index: function () {
 		var that = this;
 
 		Billbo.billsColl = new Billbo.Collections.Bills();
+		Billbo.connectionsColl = new Billbo.Collections.Connections();
 
 		Billbo.billsColl.fetch({
 			success: function () {
@@ -24,21 +25,37 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 				that.$rootEl.html(indexView.render().$el);
 			}
 		});
+
+		Billbo.connectionsColl.fetch({
+			success: function () {
+				var connectionsView = new Billbo.Views.ConnectionsIndex({
+					collection: Billbo.connectionsColl
+				});
+
+				that.$connectionsEl.html(connectionsView.render().$el);
+			}
+		});
 	},
 
 	new: function () {
 		var that = this;
 
 		Billbo.billsColl = new Billbo.Collections.Bills();
+		Billbo.connectionsColl = new Billbo.Collections.Connections();
 
-		var newBill = new Billbo.Models.Bill();
-		var formView = new Billbo.Views.BillForm({
-			connections: JSON.parse(this.connections),
-			model: newBill,
-			collection: Billbo.billsColl
+		Billbo.connectionsColl.fetch({
+			success: function () {
+				var newBill = new Billbo.Models.Bill();
+				var formView = new Billbo.Views.BillForm({
+					connections: Billbo.connectionsColl,
+					model: newBill,
+					collection: Billbo.billsColl
+				});
+
+				that.$rootEl.html(formView.render().$el);
+			}
 		});
 
-		that.$rootEl.html(formView.render().$el);
 	}
 
 });

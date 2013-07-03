@@ -1,8 +1,8 @@
 <h3>Your Connections</h3>
 
 <ul>
-	<% _(connections).each(function(connectedUser) { %>
-		<li><%= connectedUser.email %></li>
+	<% connections.each(function(connectedUser) { %>
+		<li><%= connectedUser.escape('email') %></li>
 	<% }); %>
 </ul>
 
