@@ -23,7 +23,7 @@ module SessionsHelper
 	def logout_user
 		@user = current_user
 		if @user
-			@user.session_token = nil
+			@user.session_token = SecureRandom.urlsafe_base64(8)
 			@user.save!
 		end
 		session[:session_token] = nil

@@ -11,7 +11,10 @@ class BillsController < ApplicationController
 
 	def index
 		@bills = current_user.bills
+		@bills.concat current_user.bill_responsibilities
 
-		render :json => @bills
+		# render :json => @bills
 	end
+
+
 end

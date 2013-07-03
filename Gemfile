@@ -31,6 +31,7 @@ end
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'rabl'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
