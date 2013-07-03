@@ -34,11 +34,13 @@ table tr:hover {
 
 #content {
 	float: left;
-	width: 400px;
+	width: 600px;
+	padding-right: 25px;
+	border-right: 1px solid #CCC;
 }
 
 #connections {
 	float: left;
 	width: 200px;
-	margin-left: 50px;
+	padding-left: 25px;
 }

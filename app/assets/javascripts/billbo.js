@@ -5,7 +5,6 @@ window.Billbo = {
   Routers: {},
 
   initialize: function() {
-
     new Billbo.Routers.Bills({
   		"$rootEl": $("#content"),
       "$connectionsEl": $("#connections")
