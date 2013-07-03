@@ -1,8 +1,10 @@
 class ConnectionsController < ApplicationController
 
 	def create
-		@connection = current_user.connections.build(params[:receiver_id])
+		receiver = User.find_by_email(params[:email])
+		@connection = current_user.connections.build( :receiver_id => receiver.id)
 		@connection.save!
+		render :json => @connection
 	end
 
 	def index

@@ -15,7 +15,6 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
 		Billbo.billsColl = new Billbo.Collections.Bills();
 		Billbo.connectionsColl = new Billbo.Collections.Connections();
-
 		Billbo.billsColl.fetch({
 			success: function () {
 				var indexView = new Billbo.Views.BillsIndex({
@@ -28,8 +27,10 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
 		Billbo.connectionsColl.fetch({
 			success: function () {
+				var newConnection = new Billbo.Models.Connection();
 				var connectionsView = new Billbo.Views.ConnectionsIndex({
-					collection: Billbo.connectionsColl
+					collection: Billbo.connectionsColl,
+					model: newConnection
 				});
 
 				that.$connectionsEl.html(connectionsView.render().$el);

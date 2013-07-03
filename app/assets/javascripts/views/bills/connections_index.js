@@ -6,9 +6,14 @@ Billbo.Views.ConnectionsIndex = Backbone.View.extend({
   	'click input[type="submit"]': "submit"
   },
 
+  initialize: function () {
+    var that = this;
+
+    that.listenTo(that.collection, "add", that.render);
+  },
+
   render: function () {
   	var that = this;
-  	console.log(that.collection);
 
   	var renderedContent = this.template({
   		connections: that.collection
@@ -19,11 +24,16 @@ Billbo.Views.ConnectionsIndex = Backbone.View.extend({
   },
 
   submit: function (event) {
+    var that = this;
+
   	event.preventDefault();
 
   	var attrs = $(event.target.form).serializeJSON();
 
-  	// TODO: connections need to be a model/collection for this to work...
+    this.model.set(attrs);
+    if (this.model.isNew()) {
+      this.collection.create(this.model);
+    }
   }
 
 });
