@@ -7,7 +7,7 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
 	initialize: function (options) {
 		this.$rootEl = options.$rootEl;
-		this.connections = options.connections.html();
+		this.connections = options.connections;
 	},
 
 	index: function () {

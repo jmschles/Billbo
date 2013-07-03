@@ -31,3 +31,12 @@ table th,td {
 table tr:hover {
 	background-color: #DDD;
 }
+
+#content {
+	float: left;
+}
+
+#connections {
+	float: left;
+	margin-left: 50px;
+}

@@ -28,7 +28,6 @@ Billbo.Views.BillForm = Backbone.View.extend({
   submit: function (event) {
   	event.preventDefault();
   	var attrs = $(event.target.form).serializeJSON();
-  	console.log(attrs);
 
   	function success () {
   		Backbone.history.navigate("", { trigger: true });
