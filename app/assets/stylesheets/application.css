@@ -12,6 +12,31 @@
  *= require_tree .
  */
 
+
+/* Text */
+h3,h4 {
+	text-align: center;
+	font-variant: small-caps;
+	font-family: garamond;
+	font-size: 1.2em;
+}
+
+/* Divs */
+#content {
+	float: left;
+	width: 600px;
+	padding-right: 25px;
+	border-right: 1px solid #CCC;
+}
+
+#connections {
+	float: left;
+	width: 200px;
+	padding-left: 25px;
+}
+
+/* Tables */
+
 table {
 	width: 100%;
 	font-family: garamond;
@@ -32,15 +57,10 @@ table tr:hover {
 	background-color: #DDD;
 }
 
-#content {
-	float: left;
-	width: 600px;
-	padding-right: 25px;
-	border-right: 1px solid #CCC;
+table tr th:hover {
+	background-color: #FFDEC9;
 }
 
-#connections {
-	float: left;
-	width: 200px;
-	padding-left: 25px;
+table tr td:hover {
+	background-color: #D2EDFA;
 }
