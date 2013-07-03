@@ -17,11 +17,16 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 		Billbo.connectionsColl = new Billbo.Collections.Connections();
 		Billbo.billsColl.fetch({
 			success: function () {
-				var indexView = new Billbo.Views.BillsIndex({
-					collection: Billbo.billsColl
-				});
+				Billbo.connectionsColl.fetch({
+					success: function () {
+						var indexView = new Billbo.Views.BillsIndex({
+							collection: Billbo.billsColl,
+							connections: Billbo.connectionsColl
+						});
 
-				that.$rootEl.html(indexView.render().$el);
+						that.$rootEl.html(indexView.render().$el);
+					}
+				});
 			}
 		});
 
