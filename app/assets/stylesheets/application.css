@@ -34,9 +34,11 @@ table tr:hover {
 
 #content {
 	float: left;
+	width: 400px;
 }
 
 #connections {
 	float: left;
+	width: 200px;
 	margin-left: 50px;
 }
