@@ -4,7 +4,6 @@ class BillsController < ApplicationController
 
 	def create
 		@bill = current_user.bills.build(params[:bill])
-		@billing = @bill.billings.build(params[:billing])
 		@bill.save!
 
 		render :json => @bill

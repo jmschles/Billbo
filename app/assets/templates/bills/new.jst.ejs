@@ -13,16 +13,13 @@
 
 	<label>Share bill with:</label><br />
 
-	<select name="billing[participant_id]">
-		<option></option>
-		<% _(connections).each(function(connectedUser) { %>
-			<option value="<%= connectedUser.id %>">
-				<%= connectedUser.email %>
-			</option>
-		<% }); %>
-	</select>
+	<div id="connection_selects">
+		<select name="billings_attributes[0][participant_id]">
+			<%= JST['bills/_connection']({ connections: connections }) %>
+		</select>
+	</div>
 
-	<br /><br />
+	<br />
 
 	<input type="submit" value="Create Bill!">
 

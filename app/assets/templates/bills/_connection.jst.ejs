@@ -1,0 +1,6 @@
+<option></option>
+<% _(connections).each(function(connectedUser) { %>
+	<option class="connection" value="<%= connectedUser.id %>">
+		<%= connectedUser.email %>
+	</option>
+<% }); %>

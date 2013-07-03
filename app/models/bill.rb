@@ -11,13 +11,17 @@
 #
 
 class Bill < ActiveRecord::Base
-  attr_accessible :amount, :description, :user_id
+  attr_accessible :amount, :description, :user_id, :billings_attributes
 
   validates :description, :amount, :user, :presence => true
 
   belongs_to :user
-  has_many :billings
+  has_many :billings, :dependent => :destroy
   has_many :participants, :through => :billings
 
-  accepts_nested_attributes_for :billings
+  accepts_nested_attributes_for :billings,
+  	:reject_if => (lambda do |attributes|
+  		return attributes['participant_id'].blank?
+  	end)
+
 end

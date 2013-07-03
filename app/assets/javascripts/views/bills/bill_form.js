@@ -3,11 +3,16 @@ Billbo.Views.BillForm = Backbone.View.extend({
   template: JST['bills/new'],
 
   events: {
-  	'click input[type="submit"]': "submit"
+  	'click input[type="submit"]': "submit",
+    'change select': "appendOption"
   },
 
   initialize: function (options) {
+    var that = this;
+
     this.connections = options.connections;
+    this.cxnCount = 1;
+    var $select = $('select');
   },
 
   render: function () {
@@ -35,6 +40,16 @@ Billbo.Views.BillForm = Backbone.View.extend({
   			success: success
   		});
   	}
+  },
+
+  appendOption: function () {
+    var $newOption = $(JST['bills/_connection']({ connections: this.connections }));
+    var $newSelect = $('<select>');
+    $newSelect.attr('name', 'billings_attributes[' + this.cxnCount + '][participant_id]')
+    $newSelect.html($newOption);
+    $('#connection_selects').append($('<br />'));
+    $('#connection_selects').append($newSelect);
+    this.cxnCount += 1;
   }
 
 });
