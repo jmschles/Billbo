@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702160722) do
+ActiveRecord::Schema.define(:version => 20130703164055) do
 
   create_table "billings", :force => true do |t|
     t.integer  "bill_id"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20130702160722) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "connections", ["creator_id", "receiver_id"], :name => "index_connections_on_creator_id_and_receiver_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"
