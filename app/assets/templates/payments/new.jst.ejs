@@ -1,0 +1,29 @@
+<h3>Report a Payment</h3>
+
+<div id="new-bill-form">
+  <form>
+    <label>Recipient</label>
+    <select name="recipient_id">
+        <option></option>
+      <% connections.each(function (connection) { %>
+        <option value="<%= connection.id %>">
+          <%= connection.escape('email') %>
+        </option>
+      <% }); %>
+    </select>
+    <br />
+
+    <label for="amount">Amount</label>
+    <input type="text" name="amount" id="amount">
+
+    <br />
+
+    <input type="submit" value="Report Payment!">
+
+    <br />
+
+  </form>
+
+  <br />
+  <a href="#">Never mind!</a>
+</div>

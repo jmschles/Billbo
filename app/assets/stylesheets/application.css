@@ -49,6 +49,7 @@ body {
   font-size: 1.6em;
   color: #EEE;
   padding-top: 10px;
+  text-shadow: #EEE 0 0 0.2em;
 }
 
 #header_menu {
@@ -84,23 +85,42 @@ body {
   border-right: 1px solid #CCC;
 }
 
+#buttons {
+  display: block;
+  width: 220px;
+  margin: 0px auto;
+}
+
+.link {
+  display: inline;
+  margin: 10px auto;
+}
+
 #new_bill {
   text-align: center;
-  background-color: #C9FFE2;
+  background-color: #D2EDFA;
   padding: 5px;
-  border: 2px outset #88B89E;
+  border: 2px outset #B0CBD8;
   border-radius: 6px;
-  color: #1D5C3B;
+  color: #607683;
   text-decoration: none;
   font-weight: bold;
   font-family: garamond;
-  margin: 5px auto;
   font-size: 0.9em;
 }
 
-#link {
-  margin-top: 10px;
+#new_payment {
+  margin-left: 5px;
   text-align: center;
+  background-color: #FFDEC9;
+  padding: 5px;
+  border: 2px outset #DDBCA7;
+  border-radius: 6px;
+  color: #886752;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: garamond;
+  font-size: 0.9em;
 }
 
 #connections {

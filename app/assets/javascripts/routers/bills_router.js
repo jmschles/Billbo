@@ -2,7 +2,8 @@ Billbo.Routers.Bills = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "bills/new": "new"
+    "bills/new": "new",
+    "payments/new": "newPayment"
   },
 
   initialize: function (options) {
@@ -62,6 +63,26 @@ Billbo.Routers.Bills = Backbone.Router.extend({
       }
     });
 
+  },
+
+  newPayment: function () {
+    var that = this;
+
+    Billbo.paymentsColl = new Billbo.Collections.Payments();
+    Billbo.connectionsColl = new Billbo.Collections.Connections();
+
+    Billbo.connectionsColl.fetch({
+      success: function () {
+        var payment = new Billbo.Models.Payment();
+        var paymentView = new Billbo.Views.PaymentForm({
+          connections: Billbo.connectionsColl,
+          model: payment,
+          collection: Billbo.paymentsColl
+        });
+
+        that.$rootEl.html(paymentView.render().$el);
+      }
+    });
   }
 
 });
