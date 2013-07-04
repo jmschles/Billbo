@@ -14,6 +14,7 @@ class Bill < ActiveRecord::Base
   attr_accessible :amount, :description, :user_id, :billings_attributes
 
   validates :description, :amount, :user, :presence => true
+  validates :amount, :numericality => { :greater_than => 0 }
 
   belongs_to :user
   has_many :billings, :dependent => :destroy
