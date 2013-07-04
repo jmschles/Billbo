@@ -1,6 +1,6 @@
 class RootController < ApplicationController
-	before_filter :require_login
+  before_filter :require_login
 
-	def root
-	end
+  def root
+  end
 end

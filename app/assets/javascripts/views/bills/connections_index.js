@@ -3,7 +3,7 @@ Billbo.Views.ConnectionsIndex = Backbone.View.extend({
   template: JST['connections/index'],
 
   events: {
-  	'click input[type="submit"]': "submit"
+    'click input[type="submit"]': "submit"
   },
 
   initialize: function () {
@@ -14,22 +14,22 @@ Billbo.Views.ConnectionsIndex = Backbone.View.extend({
   },
 
   render: function () {
-  	var that = this;
+    var that = this;
 
-  	var renderedContent = this.template({
-  		connections: that.collection
-  	});
+    var renderedContent = this.template({
+      connections: that.collection
+    });
 
-  	this.$el.html(renderedContent);
-  	return this;
+    this.$el.html(renderedContent);
+    return this;
   },
 
   submit: function (event) {
     var that = this;
 
-  	event.preventDefault();
+    event.preventDefault();
 
-  	var attrs = $(event.target.form).serializeJSON();
+    var attrs = $(event.target.form).serializeJSON();
 
     this.model.set(attrs);
     if (this.model.isNew()) {

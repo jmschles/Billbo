@@ -19,8 +19,8 @@ class Connection < ActiveRecord::Base
   belongs_to :receiver, :class_name => "User"
 
   def creator_cannot_be_receiver
-  	if creator_id == receiver_id
-  		errors[:receiver] << "must be a different user"
-  	end
+    if creator_id == receiver_id
+      errors[:receiver] << "must be a different user"
+    end
   end
 end

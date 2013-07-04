@@ -9,21 +9,21 @@
 <body>
 
 <div id="header">
-	<div id="logo-cont">
-		<div id="logo">Billbo</div>
-	</div>
-	<div id="header_menu">
-		<% if current_user %>
-			<p>
-				Welcome, <%= current_user.email %>!
-				<em>
-					(Not you? <%= link_to "Log out", session_url, :method => "delete" %>)
-				</em>
-			</p>	
-		<% else %>
-			<p>Welcome! Please sign in or sign up.</p>
-		<% end %>
-	</div>
+  <div id="logo-cont">
+    <div id="logo">Billbo</div>
+  </div>
+  <div id="header_menu">
+    <% if current_user %>
+      <p>
+        Welcome, <%= current_user.email %>!
+        <em>
+          (Not you? <%= link_to "Log out", session_url, :method => "delete" %>)
+        </em>
+      </p>
+    <% else %>
+      <p>Welcome! Please sign in or sign up.</p>
+    <% end %>
+  </div>
 </div>
 <%= yield %>
 

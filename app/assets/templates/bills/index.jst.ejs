@@ -1,66 +1,66 @@
 <div id="link">
-	<a id="new_bill" href="#bills/new">Add New Bill</a>
+  <a id="new_bill" href="#bills/new">Add New Bill</a>
 </div>
 
 <h4>I owe friends</h4>
 <table>
-	<tr>
-		<th>Friends</th>
-		<th>Amount</th>
-	</tr>
-	<% _(debts).each(function(debt) { %>
-		<% if (debt[1] > 0) { %>
-			<tr>
-				<td><%= debt[0] %></td>
-				<td>$ <%= debt[1].toFixed(2) %></td>
-			</tr>
-		<% } %>
-	<% }); %>
+  <tr>
+    <th>Friends</th>
+    <th>Amount</th>
+  </tr>
+  <% _(debts).each(function(debt) { %>
+    <% if (debt[1] > 0) { %>
+      <tr>
+        <td><%= debt[0] %></td>
+        <td>$ <%= debt[1].toFixed(2) %></td>
+      </tr>
+    <% } %>
+  <% }); %>
 </table>
 
 <h4>Friends owe me</h4>
 <table>
-	<tr>
-		<th>Friends</th>
-		<th>Amount</th>
-	</tr>
-		<% _(debts).each(function(debt) { %>
-		<% if (debt[1] < 0) { %>
-			<tr>
-				<td><%= debt[0] %></td>
-				<td>$ <%= (0 - debt[1]).toFixed(2) %></td>
-			</tr>
-		<% } %>
-	<% }); %>
+  <tr>
+    <th>Friends</th>
+    <th>Amount</th>
+  </tr>
+    <% _(debts).each(function(debt) { %>
+    <% if (debt[1] < 0) { %>
+      <tr>
+        <td><%= debt[0] %></td>
+        <td>$ <%= (0 - debt[1]).toFixed(2) %></td>
+      </tr>
+    <% } %>
+  <% }); %>
 </table>
 
 <h4>Bills Summary</h4>
 
 <table>
-	<tr>
-		<th>Who Paid</th>
-		<th>Description</th>
-		<th>Bill Total</th>
-		<th>Amt Owed</th>
-	</tr>
+  <tr>
+    <th>Who Paid</th>
+    <th>Description</th>
+    <th>Bill Total</th>
+    <th>Amt Owed</th>
+  </tr>
 
-	<% bills.each(function(bill) { %>
-		<% var payer_id = bill.escape('user_id'); %>
-		<% var payer = connections.get(payer_id); %>
-		<% var payer_email = (payer ? payer.escape('email') : 'Me') %>
+  <% bills.each(function(bill) { %>
+    <% var payer_id = bill.escape('user_id'); %>
+    <% var payer = connections.get(payer_id); %>
+    <% var payer_email = (payer ? payer.escape('email') : 'Me') %>
 
-		<% var share = parseFloat(bill.escape('amount') / (bill.get('billings').length + 1)).toFixed(2) %>
+    <% var share = parseFloat(bill.escape('amount') / (bill.get('billings').length + 1)).toFixed(2) %>
 
-		<% if (payer_email === 'Me') { %>
-			<% var share = (share - parseFloat(bill.escape('amount'))).toFixed(2) %>
-		<% }; %>
+    <% if (payer_email === 'Me') { %>
+      <% var share = (share - parseFloat(bill.escape('amount'))).toFixed(2) %>
+    <% }; %>
 
-		<tr>
-			<td><%= payer_email %></td>
-			<td><%= bill.escape('description') %></td>
-			<td>$ <%= parseFloat(bill.escape('amount')).toFixed(2) %></td>
-			<td>$ <%= share %></td>
-		</tr>
-	<% }); %>
+    <tr>
+      <td><%= payer_email %></td>
+      <td><%= bill.escape('description') %></td>
+      <td>$ <%= parseFloat(bill.escape('amount')).toFixed(2) %></td>
+      <td>$ <%= share %></td>
+    </tr>
+  <% }); %>
 </table>
 

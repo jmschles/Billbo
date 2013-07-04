@@ -3,7 +3,7 @@ Billbo.Views.BillForm = Backbone.View.extend({
   template: JST['bills/new'],
 
   events: {
-  	'click input[type="submit"]': "submit",
+    'click input[type="submit"]': "submit",
     'change select': "appendOption"
   },
 
@@ -16,29 +16,29 @@ Billbo.Views.BillForm = Backbone.View.extend({
   },
 
   render: function () {
-  	var renderedContent = this.template({
-  		bill: this.model,
+    var renderedContent = this.template({
+      bill: this.model,
       connections: this.connections
-  	});
+    });
 
-  	this.$el.html(renderedContent);
-  	return this;
+    this.$el.html(renderedContent);
+    return this;
   },
 
   submit: function (event) {
-  	event.preventDefault();
-  	var attrs = $(event.target.form).serializeJSON();
+    event.preventDefault();
+    var attrs = $(event.target.form).serializeJSON();
 
-  	function success () {
-  		Backbone.history.navigate("", { trigger: true });
-  	}
+    function success () {
+      Backbone.history.navigate("", { trigger: true });
+    }
 
-  	this.model.set(attrs);
-  	if (this.model.isNew()) {
-  		this.collection.create(this.model, {
-  			success: success
-  		});
-  	}
+    this.model.set(attrs);
+    if (this.model.isNew()) {
+      this.collection.create(this.model, {
+        success: success
+      });
+    }
   },
 
   appendOption: function () {

@@ -5,9 +5,9 @@
 #  id          :integer          not null, primary key
 #  user_id     :integer
 #  description :string(255)
-#  amount      :decimal(, )
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  amount      :decimal(8, 2)
 #
 
 require 'test_helper'

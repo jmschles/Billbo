@@ -16,149 +16,149 @@
 /* Text */
 
 h3,h4 {
-	text-align: center;
-	font-variant: small-caps;
-	font-family: garamond;
-	font-size: 1.2em;
+  text-align: center;
+  font-variant: small-caps;
+  font-family: garamond;
+  font-size: 1.2em;
 }
 
 /* Header */
 
 body {
-	margin: 0px;
+  margin: 0px;
 }
 
 #header {
-	height: 45px;
-	background-color: #EEE;
-	border: 1px solid #CCC;
-	margin: 0px auto;
-	position: fixed;
-	width: 100%;
+  height: 45px;
+  background-color: #EEE;
+  border: 1px solid #CCC;
+  margin: 0px auto;
+  position: fixed;
+  width: 100%;
 }
 
 #logo-cont {
-	float: left;
-	font-family: helvetica;
-	background-color: #227;
-	height: 45px;
-	padding: 0px 20px;
+  float: left;
+  font-family: helvetica;
+  background-color: #227;
+  height: 45px;
+  padding: 0px 20px;
 }
 
 #logo {
-	font-size: 1.6em;
-	color: #EEE;
-	padding-top: 10px;
+  font-size: 1.6em;
+  color: #EEE;
+  padding-top: 10px;
 }
 
 #header_menu {
-	float: right;
-	font-family: garamond;
+  float: right;
+  font-family: garamond;
 }
 
 #header_menu p {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 /* Divs */
 
 .login {
-	width: 400px;
-	background-color: #EEE;
-	border: 1px solid #CCC;
-	margin: 70px auto;
-	text-align: center;
-	font-family: garamond;
+  width: 400px;
+  background-color: #EEE;
+  border: 1px solid #CCC;
+  margin: 70px auto;
+  text-align: center;
+  font-family: garamond;
 }
 
 .login a {
-	text-decoration: none;
-	color: #666;
+  text-decoration: none;
+  color: #666;
 }
 
 #content {
-	margin-top: 70px;
-	float: left;
-	width: 600px;
-	padding-right: 25px;
-	border-right: 1px solid #CCC;
+  margin-top: 70px;
+  float: left;
+  width: 600px;
+  padding-right: 25px;
+  border-right: 1px solid #CCC;
 }
 
 #new_bill {
-	text-align: center;
-	background-color: #C9FFE2;
-	padding: 5px;
-	border: 2px outset #88B89E;
-	border-radius: 6px;
-	color: #1D5C3B;
-	text-decoration: none;
-	font-weight: bold;
-	font-family: garamond;
-	margin: 5px auto;
-	font-size: 0.9em;
+  text-align: center;
+  background-color: #C9FFE2;
+  padding: 5px;
+  border: 2px outset #88B89E;
+  border-radius: 6px;
+  color: #1D5C3B;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: garamond;
+  margin: 5px auto;
+  font-size: 0.9em;
 }
 
 #link {
-	margin-top: 10px;
-	text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
 #connections {
-	margin-top: 70px;
-	float: left;
-	width: 200px;
-	padding-left: 25px;
-	font-family: garamond;
+  margin-top: 70px;
+  float: left;
+  width: 200px;
+  padding-left: 25px;
+  font-family: garamond;
 }
 
 #connections ul {
-	list-style: square;
+  list-style: square;
 }
 
 #connections ul li:not(:last-child) {
-	border-bottom: 1px solid #CCC;
-	padding-bottom: 3px;
-	margin-bottom: 3px;
+  border-bottom: 1px solid #CCC;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
 }
 
 #new-bill-form {
-	font-family: garamond;
-	text-align: center;
+  font-family: garamond;
+  text-align: center;
 }
 
 /* Tables */
 
 table {
-	width: 100%;
-	font-family: garamond;
+  width: 100%;
+  font-family: garamond;
 }
 
 table th {
-	text-align: left;
-	font-style: bold;
+  text-align: left;
+  font-style: bold;
 }
 
 table th {
-	padding: 3px 20px;
-	border: 1px solid #CCC;
-	margin: 0px;
-	background-color: #DDD;
+  padding: 3px 20px;
+  border: 1px solid #CCC;
+  margin: 0px;
+  background-color: #DDD;
 }
 
 table td {
-	padding: 3px 20px;
-	border: 1px solid #CCC;
-	margin: 0px;
+  padding: 3px 20px;
+  border: 1px solid #CCC;
+  margin: 0px;
 }
 
 table tr:hover {
-	background-color: #EEE;
+  background-color: #EEE;
 }
 
 table tr th:hover {
-	background-color: #FFDEC9;
+  background-color: #FFDEC9;
 }
 
 table tr td:hover {
-	background-color: #D2EDFA;
+  background-color: #D2EDFA;
 }

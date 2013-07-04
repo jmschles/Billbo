@@ -5,9 +5,9 @@
 #  id          :integer          not null, primary key
 #  user_id     :integer
 #  description :string(255)
-#  amount      :decimal(, )
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  amount      :decimal(8, 2)
 #
 
 class Bill < ActiveRecord::Base
@@ -21,8 +21,8 @@ class Bill < ActiveRecord::Base
   has_many :participants, :through => :billings
 
   accepts_nested_attributes_for :billings,
-  	:reject_if => (lambda do |attributes|
-  		return attributes['participant_id'].blank?
-  	end)
+    :reject_if => (lambda do |attributes|
+      return attributes['participant_id'].blank?
+    end)
 
 end

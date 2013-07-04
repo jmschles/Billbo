@@ -1,15 +1,15 @@
-<h3>Your Connections</h3>
+<h3>My Fellowship</h3>
 
 <ul>
-	<% connections.each(function(connectedUser) { %>
-		<li><%= connectedUser.escape('email') %></li>
-	<% }); %>
+  <% connections.each(function(connectedUser) { %>
+    <li><%= connectedUser.escape('email') %></li>
+  <% }); %>
 </ul>
 
 <p>Add new connection by email:</p>
 
 <form>
-	<input type="text" name="email">
-	<br />
-	<input type="submit">
+  <input type="text" name="email">
+  <br />
+  <input type="submit">
 </form>

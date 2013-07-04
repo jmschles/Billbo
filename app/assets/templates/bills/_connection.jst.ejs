@@ -1,6 +1,6 @@
 <option></option>
 <% connections.each(function(connectedUser) { %>
-	<option class="connection" value="<%= connectedUser.id %>">
-		<%= connectedUser.escape('email') %>
-	</option>
+  <option class="connection" value="<%= connectedUser.id %>">
+    <%= connectedUser.escape('email') %>
+  </option>
 <% }); %>

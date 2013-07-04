@@ -6,11 +6,11 @@ window.Billbo = {
 
   initialize: function() {
     new Billbo.Routers.Bills({
-  		"$rootEl": $("#content"),
+      "$rootEl": $("#content"),
       "$connectionsEl": $("#connections")
-  	});
+    });
 
-  	Backbone.history.start();
+    Backbone.history.start();
   },
 };
 

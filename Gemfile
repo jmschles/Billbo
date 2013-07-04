@@ -8,11 +8,11 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 group :development do
-	gem 'pry-rails'
-	gem 'debugger'
-	gem 'annotate'
-	gem 'better_errors'
-	gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'debugger'
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 
