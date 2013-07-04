@@ -161,9 +161,11 @@ body {
   text-align: center;
 }
 
-#payment-history {
+.back {
   font-family: garamond;
   text-align: center;
+  margin: 10px auto;
+  display: block;
 }
 
 /* Tables */
