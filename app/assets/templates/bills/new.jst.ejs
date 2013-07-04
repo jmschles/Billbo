@@ -1,31 +1,33 @@
 <h3>New Bill</h3>
 
-<form>
-	<label for="description">Description</label>
-	<input type="text" name="description" id="description">
+<div id="new-bill-form">
+	<form>
+		<label for="description">Description</label>
+		<input type="text" name="description" id="description">
+
+		<br />
+
+		<label for="amount">Amount</label>
+		<input type="text" name="amount" id="amount">
+
+		<br /><br />
+
+		<label>Share bill with:</label><br />
+
+		<div id="connection_selects">
+			<select name="billings_attributes[0][participant_id]">
+				<%= JST['bills/_connection']({ connections: connections }) %>
+			</select>
+		</div>
+
+		<br />
+
+		<input type="submit" value="Create Bill!">
+
+		<br />
+
+	</form>
 
 	<br />
-
-	<label for="amount">Amount</label>
-	<input type="text" name="amount" id="amount">
-
-	<br /><br />
-
-	<label>Share bill with:</label><br />
-
-	<div id="connection_selects">
-		<select name="billings_attributes[0][participant_id]">
-			<%= JST['bills/_connection']({ connections: connections }) %>
-		</select>
-	</div>
-
-	<br />
-
-	<input type="submit" value="Create Bill!">
-
-	<br />
-
-</form>
-
-<br />
-<a href="#">Never mind!</a>
+	<a href="#">Never mind!</a>
+</div>
