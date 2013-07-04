@@ -57,8 +57,23 @@ body {
   font-family: garamond;
 }
 
-#header_menu p {
-  margin-right: 10px;
+#header_menu ul {
+  list-style: none;
+}
+
+#header_menu ul li {
+  float: left;
+  padding: 0 10px;
+}
+
+#header_menu ul li:not(:last-child) {
+  border-right: 1px solid #AAA;]
+}
+
+#header_menu ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
 }
 
 /* Divs */
@@ -142,6 +157,11 @@ body {
 }
 
 #new-bill-form {
+  font-family: garamond;
+  text-align: center;
+}
+
+#payment-history {
   font-family: garamond;
   text-align: center;
 }

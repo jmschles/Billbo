@@ -8,9 +8,9 @@ class PaymentsController < ApplicationController
   end
 
   def index
-    # TODO: shouldn't send all payments...
-    @payments = Payment.all
+    @payments = current_user.delivered_payments.all
+    @payments.concat current_user.received_payments
 
-    render :json => @payments
+    # render :json => @payments
   end
 end

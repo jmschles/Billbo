@@ -14,12 +14,16 @@
   </div>
   <div id="header_menu">
     <% if current_user %>
-      <p>
-        Welcome, <%= current_user.email %>!
-        <em>
-          (Not you? <%= link_to "Log out", session_url, :method => "delete" %>)
-        </em>
-      </p>
+      <ul>
+        <li>Welcome, <%= current_user.email %>!</li>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a id="payments_history" href="#payments">Payments History</a>
+        </li>
+        <li>
+          <%= link_to "Log out", session_url, :method => "delete" %>
+        </li>
+      </ul>
     <% else %>
       <p>Welcome! Please sign in or sign up.</p>
     <% end %>
