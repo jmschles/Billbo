@@ -38,7 +38,14 @@
 		<th>Friends</th>
 		<th>Amount</th>
 	</tr>
-
+	<% _(debts).each(function(debt) { %>
+		<% if (debt[1] > 0) { %>
+			<tr>
+				<td><%= debt[0] %></td>
+				<td>$ <%= debt[1].toFixed(2) %></td>
+			</tr>
+		<% } %>
+	<% }); %>
 </table>
 
 <h4>Friends owe me</h4>
@@ -47,5 +54,12 @@
 		<th>Friends</th>
 		<th>Amount</th>
 	</tr>
-
+		<% _(debts).each(function(debt) { %>
+		<% if (debt[1] < 0) { %>
+			<tr>
+				<td><%= debt[0] %></td>
+				<td>$ <%= (0 - debt[1]).toFixed(2) %></td>
+			</tr>
+		<% } %>
+	<% }); %>
 </table>
