@@ -15,7 +15,12 @@
       <% var recipient = connections.get(payment.get('recipient_id')); %>
       <% var recipient_email = (recipient ? recipient.get('email') : 'Me'); %>
       <% var d = new Date(payment.get('date') * 1000); %>
-      <% var formatted_date = (d.getMonth() + 1) + "-" + d.getDate() + "-" + d.getFullYear() + "  " + d.getHours() + ":" + d.getMinutes(); %>
+      <% var formatted_date =
+        (d.getMonth() + 1) + "-" +
+        d.getDate() + "-" +
+        d.getFullYear() + "  " +
+        d.getHours() + ":" +
+        ('0' + d.getMinutes()).slice(-2); %>
 
       <tr>
         <td><%= formatted_date %></td>
