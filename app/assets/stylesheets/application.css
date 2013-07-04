@@ -14,6 +14,7 @@
 
 
 /* Text */
+
 h3,h4 {
 	text-align: center;
 	font-variant: small-caps;
@@ -22,6 +23,7 @@ h3,h4 {
 }
 
 /* Divs */
+
 #content {
 	float: left;
 	width: 600px;
@@ -33,6 +35,17 @@ h3,h4 {
 	float: left;
 	width: 200px;
 	padding-left: 25px;
+	font-family: garamond;
+}
+
+#connections ul {
+	list-style: square;
+}
+
+#connections ul li:not(:last-child) {
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 3px;
+	margin-bottom: 3px;
 }
 
 /* Tables */
@@ -47,14 +60,21 @@ table th {
 	font-style: bold;
 }
 
-table th,td {
+table th {
+	padding: 3px 20px;
+	border: 1px solid #CCC;
+	margin: 0px;
+	background-color: #DDD;
+}
+
+table td {
 	padding: 3px 20px;
 	border: 1px solid #CCC;
 	margin: 0px;
 }
 
 table tr:hover {
-	background-color: #DDD;
+	background-color: #EEE;
 }
 
 table tr th:hover {
