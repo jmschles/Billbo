@@ -12,11 +12,10 @@ class BillsController < ApplicationController
   def index
     @bills = current_user.bills.all
     @bills.concat current_user.bill_responsibilities
-
-    puts @bills
-
-    # render :json => @bills
   end
 
+  def show
+    @bill = Bill.find(params[:id])
+  end
 
 end

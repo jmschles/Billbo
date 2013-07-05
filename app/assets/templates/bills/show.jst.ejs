@@ -1,0 +1,39 @@
+<% var payer_id = bill.get('payer_id') %>
+<% var payer = connections.get(payer_id) %>
+<% var payer_email = (payer ? payer.get('email') : 'Me') %>
+
+<% var share = parseFloat(bill.escape('amount') / (bill.get('billings').length + 1)).toFixed(2) %>
+
+<% var d = new Date(bill.get('date') * 1000) %>
+<% var formatted_date =
+    (d.getMonth() + 1) + "-" +
+    d.getDate() + "-" +
+    d.getFullYear() + "  " +
+    d.getHours() + ":" +
+    ('0' + d.getMinutes()).slice(-2); %>
+
+<% var participants = bill.get('billings'); %>
+
+<div id="bill-show">
+  <h3><%= bill.escape('description') %></h3>
+  <div id="data">
+    <p>Total cost: $ <%= parseFloat(bill.get('amount')).toFixed(2) %></p>
+
+    <p>Posted: <%= formatted_date %></p>
+
+    <p>Paid for by: <%= payer_email %></p>
+
+    <p>Other participants:</p>
+    <ul>
+      <% _(participants).each(function(participant) { %>
+        <% var connection = connections.get(participant.participant_id) %>
+        <li>
+          <%= (connection ? connection.escape('email') : 'Me') %>
+        </li>
+      <% }); %>
+    </ul>
+
+    <p>Cost per person: $ <%= share %></p>
+  </div>
+    <span class="back"><a href="#">Back</a></span>
+</div>

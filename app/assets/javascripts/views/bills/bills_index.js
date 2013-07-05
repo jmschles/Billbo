@@ -2,6 +2,10 @@ Billbo.Views.BillsIndex = Backbone.View.extend({
 
   template: JST['bills/index'],
 
+  events: {
+    'click .bill_row': "show"
+  },
+
   initialize: function(options) {
     this.connections = options.connections;
     this.payments = options.payments;
@@ -17,6 +21,11 @@ Billbo.Views.BillsIndex = Backbone.View.extend({
 
     this.$el.html(renderedContent);
     return this;
+  },
+
+  show: function (event) {
+    var id = $(event.target).parent().attr('data-id');
+    Backbone.history.navigate('bills/' + id, { trigger: true });
   },
 
   getDebts: function () {

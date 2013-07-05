@@ -3,6 +3,7 @@ Billbo.Routers.Bills = Backbone.Router.extend({
   routes: {
     "": "index",
     "bills/new": "new",
+    "bills/:id": "showBill",
     "payments": "payments",
     "payments/new": "newPayment"
   },
@@ -108,6 +109,30 @@ Billbo.Routers.Bills = Backbone.Router.extend({
             });
 
             that.$rootEl.html(paymentsView.render().$el);
+          }
+        });
+      }
+    });
+  },
+
+  showBill: function (id) {
+    var that = this;
+
+    Billbo.connectionsColl = new Billbo.Collections.Connections();
+    Billbo.billsColl = new Billbo.Collections.Bills();
+
+    Billbo.billsColl.fetch({
+      success: function () {
+        Billbo.connectionsColl.fetch({
+          success: function () {
+            var bill = Billbo.billsColl.get(id);
+
+            var billView = new Billbo.Views.BillView({
+              model: bill,
+              connections: Billbo.connectionsColl
+            });
+
+            that.$rootEl.html(billView.render().$el);
           }
         });
       }

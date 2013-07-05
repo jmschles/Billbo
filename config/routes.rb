@@ -1,7 +1,7 @@
 Billbo::Application.routes.draw do
   root :to => "root#root"
 
-  resources :bills, :only => [:create, :index]
+  resources :bills, :only => [:create, :index, :show]
   resources :billings, :only => [:create]
   resources :connections, :only => [:create, :index]
   resources :payments, :only => [:create, :index]

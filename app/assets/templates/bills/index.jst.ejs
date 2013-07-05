@@ -44,9 +44,9 @@
 <table>
   <tr>
     <th>Who Paid</th>
+    <th>Members</th>
     <th>Description</th>
     <th>Bill Total</th>
-    <th>Amt Owed</th>
   </tr>
 
   <% bills.each(function(bill) { %>
@@ -60,11 +60,11 @@
       <% var share = (share - parseFloat(bill.escape('amount'))).toFixed(2) %>
     <% }; %>
 
-    <tr>
+    <tr class="bill_row" data-id="<%= bill.id %>">
       <td><%= payer_email %></td>
+      <td><%= (bill.get('billings').length + 1) %></td>
       <td><%= bill.escape('description') %></td>
       <td>$ <%= parseFloat(bill.escape('amount')).toFixed(2) %></td>
-      <td>$ <%= share %></td>
     </tr>
   <% }); %>
 </table>
