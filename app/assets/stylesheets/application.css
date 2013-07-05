@@ -20,6 +20,7 @@ h3,h4 {
   font-variant: small-caps;
   font-family: garamond;
   font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 /* Header */
@@ -105,6 +106,10 @@ body {
   border-right: 1px solid #CCC;
 }
 
+#content span {
+  font-family: garamond;
+}
+
 #buttons {
   display: block;
   width: 220px;
@@ -146,13 +151,15 @@ body {
 #connections {
   margin-top: 70px;
   float: left;
-  width: 200px;
+  width: 220px;
   padding-left: 25px;
   font-family: garamond;
+  text-align: center;
 }
 
 #connections ul {
   list-style: square;
+  text-align: left;
 }
 
 #connections ul li:not(:last-child) {

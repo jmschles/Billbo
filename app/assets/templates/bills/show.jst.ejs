@@ -15,7 +15,7 @@
 <% var participants = bill.get('billings'); %>
 
 <div id="bill-show">
-  <h3><%= bill.escape('description') %></h3>
+  <h4><%= bill.escape('description') %></h4>
   <div id="data">
     <p>Total cost: $ <%= parseFloat(bill.get('amount')).toFixed(2) %></p>
 
