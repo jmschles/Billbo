@@ -20,37 +20,57 @@ Billbo.Routers.Bills = Backbone.Router.extend({
     Billbo.connectionsColl = new Billbo.Collections.Connections();
     Billbo.paymentsColl = new Billbo.Collections.Payments();
 
-    Billbo.billsColl.fetch({
-      success: function () {
-        Billbo.connectionsColl.fetch({
-          success: function () {
-            Billbo.paymentsColl.fetch({
-              success: function () {
-                var indexView = new Billbo.Views.BillsIndex({
-                  collection: Billbo.billsColl,
-                  connections: Billbo.connectionsColl,
-                  payments: Billbo.paymentsColl
-                });
+    // Billbo.billsColl.fetch({
+    //   success: function () {
+    //     Billbo.connectionsColl.fetch({
+    //       success: function () {
+    //         Billbo.paymentsColl.fetch({
+    //           success: function () {
+    //             var indexView = new Billbo.Views.BillsIndex({
+    //               collection: Billbo.billsColl,
+    //               connections: Billbo.connectionsColl,
+    //               payments: Billbo.paymentsColl
+    //             });
 
-                that.$rootEl.html(indexView.render().$el);
-              }
+    //             that.$rootEl.html(indexView.render().$el);
+    //           }
+    //         });
+    //       }
+    //     });
+    //   }
+    // });
+
+    $.when( Billbo.billsColl.fetch(),
+            Billbo.connectionsColl.fetch(),
+            Billbo.paymentsColl.fetch()
+          ).done(function () {
+            var indexView = new Billbo.Views.BillsIndex({
+              collection: Billbo.billsColl,
+              connections: Billbo.connectionsColl,
+              payments: Billbo.paymentsColl
             });
-          }
-        });
-      }
-    });
 
-    Billbo.connectionsColl.fetch({
-      success: function () {
-        var newConnection = new Billbo.Models.Connection();
-        var connectionsView = new Billbo.Views.ConnectionsIndex({
-          collection: Billbo.connectionsColl,
-          model: newConnection
-        });
+            var newConnection = new Billbo.Models.Connection();
+            var connectionsView = new Billbo.Views.ConnectionsIndex({
+              collection: Billbo.connectionsColl,
+              model: newConnection
+            });
 
-        that.$connectionsEl.html(connectionsView.render().$el);
-      }
-    });
+            that.$connectionsEl.html(connectionsView.render().$el);
+            that.$rootEl.html(indexView.render().$el);
+          });
+
+    // Billbo.connectionsColl.fetch({
+    //   success: function () {
+    //     var newConnection = new Billbo.Models.Connection();
+    //     var connectionsView = new Billbo.Views.ConnectionsIndex({
+    //       collection: Billbo.connectionsColl,
+    //       model: newConnection
+    //     });
+
+    //     that.$connectionsEl.html(connectionsView.render().$el);
+    //   }
+    // });
   },
 
   new: function () {
@@ -99,20 +119,31 @@ Billbo.Routers.Bills = Backbone.Router.extend({
     Billbo.paymentsColl = new Billbo.Collections.Payments();
     Billbo.connectionsColl = new Billbo.Collections.Connections();
 
-    Billbo.paymentsColl.fetch({
-      success: function () {
-        Billbo.connectionsColl.fetch({
-          success: function () {
+    $.when( Billbo.paymentsColl.fetch(),
+            Billbo.connectionsColl.fetch()
+          ).done(function () {
             var paymentsView = new Billbo.Views.PaymentsIndex({
               collection: Billbo.paymentsColl,
               connections: Billbo.connectionsColl
             });
 
             that.$rootEl.html(paymentsView.render().$el);
-          }
-        });
-      }
-    });
+          });
+
+    // Billbo.paymentsColl.fetch({
+    //   success: function () {
+    //     Billbo.connectionsColl.fetch({
+    //       success: function () {
+    //         var paymentsView = new Billbo.Views.PaymentsIndex({
+    //           collection: Billbo.paymentsColl,
+    //           connections: Billbo.connectionsColl
+    //         });
+
+    //         that.$rootEl.html(paymentsView.render().$el);
+    //       }
+    //     });
+    //   }
+    // });
   },
 
   showBill: function (id) {
@@ -121,10 +152,9 @@ Billbo.Routers.Bills = Backbone.Router.extend({
     Billbo.connectionsColl = new Billbo.Collections.Connections();
     Billbo.billsColl = new Billbo.Collections.Bills();
 
-    Billbo.billsColl.fetch({
-      success: function () {
-        Billbo.connectionsColl.fetch({
-          success: function () {
+    $.when( Billbo.connectionsColl.fetch(),
+            Billbo.billsColl.fetch()
+          ).done(function () {
             var bill = Billbo.billsColl.get(id);
 
             var billView = new Billbo.Views.BillView({
@@ -133,10 +163,23 @@ Billbo.Routers.Bills = Backbone.Router.extend({
             });
 
             that.$rootEl.html(billView.render().$el);
-          }
-        });
-      }
-    });
-  }
+          });
 
+    // Billbo.billsColl.fetch({
+    //   success: function () {
+    //     Billbo.connectionsColl.fetch({
+    //       success: function () {
+    //         var bill = Billbo.billsColl.get(id);
+
+    //         var billView = new Billbo.Views.BillView({
+    //           model: bill,
+    //           connections: Billbo.connectionsColl
+    //         });
+
+    //         that.$rootEl.html(billView.render().$el);
+    //       }
+    //     });
+    //   }
+    // });
+  }
 });
