@@ -65,10 +65,12 @@ Billbo.Views.BillsIndex = Backbone.View.extend({
 
     });
 
+    console.log(paymentsHash);
+
     this.payments.each(function (payment) {
       var payer_id = payment.get('payer_id');
       var recipient_id = payment.get('recipient_id');
-      var amount = payment.get('amount');
+      var amount = parseFloat(payment.get('amount'));
 
       if (payer_id == current_user_id) {
         var recipient = that.connections.get(recipient_id);
@@ -92,7 +94,7 @@ Billbo.Views.BillsIndex = Backbone.View.extend({
       }
 
     });
-
+  console.log(paymentsHash);
   return _.pairs(paymentsHash);
   }
 
