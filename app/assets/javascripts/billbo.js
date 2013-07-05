@@ -10,6 +10,9 @@ window.Billbo = {
       "$connectionsEl": $("#connections")
     });
 
+    Dispatcher = _.extend({}, Backbone.Events);
+    new FlashMessage();
+
     Backbone.history.start();
   },
 };
