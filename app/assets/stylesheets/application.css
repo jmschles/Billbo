@@ -96,6 +96,10 @@ body {
   font-weight: bold;
 }
 
+#header_menu ul li a:hover {
+  color: #888;
+}
+
 #footer {
   clear: both;
   position: relative;
@@ -122,7 +126,11 @@ body {
 
 .login a {
   text-decoration: none;
-  color: #666;
+  color: #555;
+}
+
+.login a:hover {
+  color: #888;
 }
 
 #content {
@@ -218,7 +226,14 @@ body {
   font-family: garamond;
   text-align: center;
   margin: 10px auto;
-  display: block;
+  /*display: block;*/
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+
+.back:hover {
+  color: #888;
 }
 
 /* Tables */
