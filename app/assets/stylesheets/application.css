@@ -57,6 +57,10 @@ body {
   font-family: garamond;
 }
 
+#header_menu p {
+  padding-right: 10px;
+}
+
 #header_menu ul {
   list-style: none;
 }

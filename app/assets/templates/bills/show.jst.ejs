@@ -1,4 +1,4 @@
-<% var payer_id = bill.get('payer_id') %>
+<% var payer_id = bill.get('user_id') %>
 <% var payer = connections.get(payer_id) %>
 <% var payer_email = (payer ? payer.get('email') : 'Me') %>
 
@@ -26,9 +26,8 @@
     <p>Other participants:</p>
     <ul>
       <% _(participants).each(function(participant) { %>
-        <% var connection = connections.get(participant.participant_id) %>
         <li>
-          <%= (connection ? connection.escape('email') : 'Me') %>
+          <%= participant.participant_email %>
         </li>
       <% }); %>
     </ul>

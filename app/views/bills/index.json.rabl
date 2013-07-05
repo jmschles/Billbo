@@ -5,4 +5,7 @@ node(:date) do |b|
 end
 child :billings do
   attributes :participant_id
+  node(:participant_email) do |billing|
+    User.find(billing.participant_id).email
+  end
 end
