@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       @user = User.new(params[:user])
-      flash[:errors] ||= []
-      flash[:errors] << "Invalid username/password combination"
+      flash.now[:errors] ||= []
+      flash.now[:errors] << "Invalid username/password combination"
       render :new
     end
   end

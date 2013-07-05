@@ -1,4 +1,10 @@
 <div class="login">
+  <div class="login-errors">
+    <% flash[:errors].try(:each) do |error| %>
+      <%= error %>
+    <% end %>
+  </div>
+
   <h3>Sign in</h3>
 
   <form action="<%= session_url %>" method="post">

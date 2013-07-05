@@ -236,12 +236,16 @@ body {
   color: #888;
 }
 
-#connection-errors {
+.errors {
   background-color: #FFD8D8;
   border: 1px solid #DDA5A5;
   color: #FF3535;
   border-radius: 6px;
   display: none;
+}
+
+.login-errors {
+  color: #FF0000;
 }
 
 /* Tables */

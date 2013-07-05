@@ -4,7 +4,7 @@ var FlashMessage = Backbone.View.extend({
   },
 
   render: function (msg) {
-    var $errorDiv = $("#connection-errors");
+    var $errorDiv = $("#errors");
     $errorDiv.show('fast').delay(1500).hide('fast');
     $errorDiv.html('<p>' + msg + '</p>');
   }
