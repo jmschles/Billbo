@@ -34,6 +34,7 @@ body {
   border: 1px solid #CCC;
   margin: 0px auto;
   position: fixed;
+  top: 0px;
   width: 100%;
 }
 
