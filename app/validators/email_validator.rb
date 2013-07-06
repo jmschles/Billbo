@@ -4,7 +4,7 @@ class EmailValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute_name, value)
     unless value =~ EMAIL_REGEX
-      record.errors[attribute_name] << (options[:message] || "is not an email")
+      record.errors[attribute_name] << (options[:message] || "is not a valid email address")
     end
   end
 end

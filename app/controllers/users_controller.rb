@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash.now[:errors] ||= []
-      flash.now[:errors] << "Invalid email/password combination"
+      flash.now[:errors] << @user.errors.full_messages[0]
       render :new
     end
   end

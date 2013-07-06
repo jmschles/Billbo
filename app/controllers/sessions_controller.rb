@@ -6,9 +6,14 @@ class SessionsController < ApplicationController
       login_user(@user)
       redirect_to root_url
     else
-      @user = User.new(params[:user])
       flash.now[:errors] ||= []
-      flash.now[:errors] << "Invalid username/password combination"
+      if !@user
+        flash.now[:errors] << "Email not found."
+      elsif !@user.verify_password(params[:user][:password])
+        flash.now[:errors] << "Invalid password."
+      end
+      @user = User.new(params[:user])
+
       render :new
     end
   end
