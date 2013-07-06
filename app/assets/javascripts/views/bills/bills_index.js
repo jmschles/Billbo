@@ -62,10 +62,7 @@ Billbo.Views.BillsIndex = Backbone.View.extend({
           paymentsHash[payer_email] = share;
         }
       }
-
     });
-
-    console.log(paymentsHash);
 
     this.payments.each(function (payment) {
       var payer_id = payment.get('payer_id');
@@ -92,9 +89,7 @@ Billbo.Views.BillsIndex = Backbone.View.extend({
         }
 
       }
-
-    });
-  console.log(paymentsHash);
+    })
   return _.pairs(paymentsHash);
   }
 
