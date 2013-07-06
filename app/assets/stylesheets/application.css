@@ -227,7 +227,6 @@ body {
   font-family: garamond;
   text-align: center;
   margin: 10px auto;
-  /*display: block;*/
   text-decoration: none;
   color: #555;
   font-weight: bold;
@@ -262,14 +261,14 @@ table th {
 }
 
 table th {
-  padding: 3px 20px;
+  padding: 3px 15px;
   border: 1px solid #CCC;
   margin: 0px;
   background-color: #DDD;
 }
 
 table td {
-  padding: 3px 20px;
+  padding: 3px 15px;
   border: 1px solid #CCC;
   margin: 0px;
 }
@@ -284,4 +283,21 @@ table tr th:hover {
 
 table tr td:hover {
   background-color: #D2EDFA;
+}
+
+#payments-table tr td:last-child {
+  padding: 3px 5px;
+  width: 10px;
+  text-align: center;
+}
+
+#payments-table tr td:last-child a {
+  font-family: garamond;
+  text-decoration: none;
+  font-weight: bold;
+  color: #555;
+}
+
+#payments-table tr td:last-child a:hover {
+  color: #888;
 }

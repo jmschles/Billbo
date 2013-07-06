@@ -28,6 +28,5 @@ Billbo.Views.PaymentsIndex = Backbone.View.extend({
     var id = $(event.target).attr('data-id');
     var payment = this.collection.get(id);
     payment.destroy({ wait: true});
-    console.log("Y U DELETE ME?!?");
   }
 });

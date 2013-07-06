@@ -1,7 +1,7 @@
 <div id="payment-history">
   <h3>Payment History</h3>
 
-  <table>
+  <table id="payments-table">
     <tr>
       <th>Time Posted</th>
       <th>Payer</th>
@@ -28,7 +28,12 @@
         <td><%= payer_email %></td>
         <td><%= recipient_email %></td>
         <td>$ <%= parseFloat((payment.escape('amount'))).toFixed(2) %></td>
-        <td><a class="delete" data-id="<%= payment.id %>"href="#">x</a></td>
+        <td>
+          <a class="delete" data-id="<%= payment.id %>"href="#">
+            x
+            <!-- <i class="icon-remove"></i> -->
+          </a>
+        </td>
       </tr>
     <% }); %>
 
