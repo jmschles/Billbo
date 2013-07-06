@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
                     :uniqueness => true,
                     :email => true
 
+  validates :password_digest, :presence => { :message => "must be at least 6 characters"}
+
   has_many :bills
 
   has_many :billings, :foreign_key => :participant_id
@@ -34,7 +36,11 @@ class User < ActiveRecord::Base
              :foreign_key => "payer_id"
 
   def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
+    if password.length < 6
+      self.password_digest = nil
+    else
+      self.password_digest = BCrypt::Password.create(password)
+    end
   end
 
   def verify_password(password_attempt)
