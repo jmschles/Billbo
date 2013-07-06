@@ -36,5 +36,8 @@
   </div>
   <div style="text-align:center; margin-top:10px">
     <a class="back" href="#">Back</a>
+    <% if (payer_email === 'Me') { %>
+       | <a class="back delete" data-id="<%= bill.id %>" href="#">Delete</a>
+    <% } %>
   </div>
 </div>

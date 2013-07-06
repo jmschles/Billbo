@@ -2,8 +2,21 @@ Billbo.Views.BillView = Backbone.View.extend({
 
   template: JST['bills/show'],
 
+  events: {
+    'click a.delete': 'delete'
+  },
+
   initialize: function (options) {
     this.connections = options.connections;
+  },
+
+  delete: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("", { trigger: true });
+      }
+    });
   },
 
   render: function () {
