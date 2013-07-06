@@ -2,8 +2,13 @@ Billbo.Views.PaymentsIndex = Backbone.View.extend({
 
   template: JST['payments/index'],
 
+  events: {
+    "click a.delete": "delete"
+  },
+
   initialize: function (options) {
     this.connections = options.connections;
+    this.listenTo(this.collection, "remove", this.render);
   },
 
   render: function () {
@@ -17,4 +22,12 @@ Billbo.Views.PaymentsIndex = Backbone.View.extend({
     this.$el.html(renderedContent);
     return this;
   },
+
+  delete: function (event) {
+    event.preventDefault();
+    var id = $(event.target).attr('data-id');
+    var payment = this.collection.get(id);
+    payment.destroy({ wait: true});
+    console.log("Y U DELETE ME?!?");
+  }
 });
