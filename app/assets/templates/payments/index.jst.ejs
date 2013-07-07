@@ -29,10 +29,13 @@
         <td><%= recipient_email %></td>
         <td>$ <%= parseFloat((payment.escape('amount'))).toFixed(2) %></td>
         <td>
-          <a class="delete" data-id="<%= payment.id %>"href="#">
-            x
-            <!-- <i class="icon-remove"></i> -->
-          </a>
+          <% if (payer_email === 'Me') { %>
+            <a class="delete" data-id="<%= payment.id %>"href="#">
+              <i class="icon-remove"></i>
+            </a>
+          <% } else { %>
+            -
+          <% } %>
         </td>
       </tr>
     <% }); %>
