@@ -24,10 +24,6 @@ body > #container {
   min-height: 100%;
 }
 
-#wrapper {
-  padding-bottom: 3em;
-}
-
 /* Text */
 
 h3,h4 {
