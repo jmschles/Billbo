@@ -281,6 +281,10 @@ table tr td:hover {
   background-color: #D2EDFA;
 }
 
+#bills-index-table tr td:hover {
+  cursor: pointer;
+}
+
 #payments-table tr td:last-child {
   padding: 3px 5px;
   width: 10px;
