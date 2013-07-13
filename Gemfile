@@ -28,6 +28,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'newrelic_rpm'
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'

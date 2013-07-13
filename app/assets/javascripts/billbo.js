@@ -19,7 +19,6 @@ window.Billbo = {
 
 $(document).ready(function(){
   var url = window.location.href;
-  // TODO: only initialize on root page -- how?
   if (url.indexOf('session') == -1 && url.indexOf('user') == -1) {
     Billbo.initialize();
   }
