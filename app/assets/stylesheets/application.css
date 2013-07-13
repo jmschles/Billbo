@@ -84,7 +84,7 @@ body {
 }
 
 #header_menu ul li:not(:last-child) {
-  border-right: 1px solid #AAA;]
+  border-right: 1px solid #AAA;
 }
 
 #header_menu ul li a {
