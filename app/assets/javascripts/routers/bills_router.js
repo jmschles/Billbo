@@ -30,10 +30,8 @@ Billbo.Routers.Bills = Backbone.Router.extend({
               payments: Billbo.paymentsColl
             });
 
-            var newConnection = new Billbo.Models.Connection();
             var connectionsView = new Billbo.Views.ConnectionsIndex({
               collection: Billbo.connectionsColl,
-              model: newConnection
             });
 
             that.$connectionsEl.html(connectionsView.render().$el);

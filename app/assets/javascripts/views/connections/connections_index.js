@@ -25,15 +25,17 @@ Billbo.Views.ConnectionsIndex = Backbone.View.extend({
   },
 
   submit: function (event) {
+    var newConnection = new Billbo.Models.Connection();
+
     var that = this;
 
     event.preventDefault();
 
     var attrs = $(event.target.form).serializeJSON();
 
-    this.model.set(attrs);
-    if (this.model.isNew()) {
-      this.collection.create(this.model, {
+    newConnection.set(attrs);
+    if (newConnection.isNew()) {
+      this.collection.create(newConnection, {
         wait: true,
         error: function (resp) {
           var email = resp.get('email');
